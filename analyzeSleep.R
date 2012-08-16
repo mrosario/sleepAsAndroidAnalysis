@@ -1,6 +1,6 @@
 #main
 analyzeSleepData<-function(){
-  sleepData<-scan(file="Dropbox/Apps/Sleep as Android/Graph/sleep-export.csv",what="character",sep="\n")
+  sleepData<-scan(file="~/Dropbox/Apps/Sleep as Android/Graph/sleep-export.csv",what="character",sep="\n")
   sleepData<-lapply(X=seq(1,length(sleepData),2),parseSleepData,sleepData)
   
   print(c("(r)ating","(raw) data","(d)uration","(s)tacked raw data"))
