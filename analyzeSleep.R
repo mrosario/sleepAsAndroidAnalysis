@@ -214,5 +214,3 @@ durationBoxPlot<-function(data){
   boxplot(duration~rating,xlab="Rating",ylab="Duration")
   
 }
-
-x=TEST
