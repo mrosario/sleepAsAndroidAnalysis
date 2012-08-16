@@ -1,6 +1,3 @@
-#sleepData<-read.csv("Dropbox/documents/sleep-export.csv")
-#sleepData<-sleepData[seq(1,length(sleepData),2),]
-
 #main
 analyzeSleepData<-function(){
   sleepData<-scan(file="Dropbox/Apps/Sleep as Android/Graph/sleep-export.csv",what="character",sep="\n")
