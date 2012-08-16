@@ -6,10 +6,7 @@ analyzeSleepData<-function(){
   print(c("(r)ating","(raw) data","(d)uration","(s)tacked raw data"))
   answer<-readline("What analysis would you like to perform: ")
   
-  if(answer=="r"){
-    cat("Rating by: \n")
-    print(c("sleep (d)uration","sleep (s)tart", "sleep (e)nd"))
-    answer<-readline("What analysis would you like to perform: ")
+
     
     if(answer=="d")
       plotSleepInfo(sleepData,x="Duration",y="Rating")
@@ -211,3 +208,5 @@ durationBoxPlot<-function(data){
   boxplot(duration~rating,xlab="Rating",ylab="Duration")
   
 }
+
+x="test"
