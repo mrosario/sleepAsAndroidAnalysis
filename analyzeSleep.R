@@ -50,7 +50,6 @@ parseSleepData<-function(lineNumber,data){
   #work on first data frame of sleep details
   details<-data.frame(ID=values[1],Timezone=values[2],From=strptime(values[3],format="%d. %m. %Y %H:%M"),To=strptime(values[4],format="%d. %m. %Y %H:%M"),Duration=as.numeric(values[6]),Rating=as.numeric(values[7]),Comment=values[8],Framerate=as.numeric(values[9]))
   
-  #time<-strptime(labels[10:length(values)],format("%H:%M"))
   time<-seq(from=details$From,to=details$To,length.out=length(values)-9)
   peaks<-as.numeric(values[10:length(values)])
   
@@ -59,8 +58,6 @@ parseSleepData<-function(lineNumber,data){
 }
 
 plotSleepInfo<-function(data=sleepData,x,y){
-  #tempY=vector(mode="numeric",length=length(data))
-  #tempX=vector(mode="numeric",length=length(data))
   tempY=NULL
   tempX=NULL
   
