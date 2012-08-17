@@ -195,7 +195,6 @@ plotSleepData1<-function(data){
   for(i in 1:length(data)){
     points(x=normalizeTime(data[[i]]$sleepData$time[-1]),y=data[[i]]$sleepData$peaks[-1],col=rgb(red=0,green=ifelse(data[[i]]$info$Rating>=3&data[[i]]$info$Rating<4,1,0),blue=ifelse(data[[i]]$info$Rating>=3,1,0),alpha=0.3),lwd=ifelse(data[[i]]$info$Rating>=4,1,0.5),pch=20,cex=ifelse(data[[i]]$info$Rating>=4,1.5,0.5),type="l")
   }
-  
 }
 
 durationBoxPlot<-function(data){
@@ -206,7 +205,6 @@ durationBoxPlot<-function(data){
     duration[i]<-data[[i]]$info$Duration
     rating[i]<-as.character(data[[i]]$info$Rating)
   }
-  
   rating<-as.factor(rating)
   boxplot(duration~rating,xlab="Rating",ylab="Duration")
   
