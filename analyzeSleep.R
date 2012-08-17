@@ -37,14 +37,12 @@ analyzeSleepData<-function(){
   sleepData
 }
 
-
 #functions
 parseSleepData<-function(lineNumber,data){
   tempString<-data[lineNumber]
   tempString<-gsub(pattern="\\\"",replacement="",tempString)
   tempString2<-data[lineNumber+1]
   tempString2<-gsub(pattern="\\\"",replacement="",tempString2)
-  
   
   labels<-unlist(strsplit(x=tempString,split=","))
   values<-unlist(strsplit(x=tempString2,split=","))
@@ -57,7 +55,6 @@ parseSleepData<-function(lineNumber,data){
   peaks<-as.numeric(values[10:length(values)])
   
   sleepData<-data.frame(time=time,peaks=peaks)
-  
   list(info=details,sleepData=sleepData)
 }
 
@@ -67,14 +64,11 @@ plotSleepInfo<-function(data=sleepData,x,y){
   tempY=NULL
   tempX=NULL
   
-  
   for(i in 1:length(data)){
     tempY[i]=data[[i]]$info[,y]
     tempX[i]=data[[i]]$info[,x]
   }
   
-  #tempX<<-tempX
-  #unclass(as.POSIXlt(tempX,origin="1970-01-01",tz="America/New_York"))
   if(x=="From"|x=="To"){
     tempUnclass<-unclass(as.POSIXlt(tempX,origin="1970-01-01",tz="America/New_York"))
     tempX<-strptime(paste(tempUnclass$hour,tempUnclass$min,sep=":"),format="%H:%M")
@@ -152,8 +146,6 @@ plotSleepData<-function(data,stack=F,ordered=F){
       points(x=normalizeTime(data[[i]]$sleepData$time[-1]),y=data[[i]]$sleepData$peaks[-1],col=rgb(red=0,green=ifelse(data[[i]]$info$Rating>=3&data[[i]]$info$Rating<4,1,0),blue=ifelse(data[[i]]$info$Rating>=3,1,0),alpha=0.3),lwd=ifelse(data[[i]]$info$Rating>=4,1,0.5),pch=20,cex=ifelse(data[[i]]$info$Rating>=4,1.5,0.5),type="l")
     }
   }
-  
-  
 }
 
 durationBoxPlot<-function(data){
